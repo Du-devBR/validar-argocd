@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: frontend-react
+  namespace: frontend
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: app.dev.pipebr
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-react
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - app.dev.pipebr
+      secretName: wildcard-dev-pipebr-tls
