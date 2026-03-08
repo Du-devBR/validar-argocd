@@ -17,6 +17,6 @@ spec:
       - name: harbor-secret
       containers:
       - name: frontend
-        image: harbor.dev.pipebr/frontend/frontend:v1
+        image: harbor.dev.pipebr/frontend/frontend:v2
         ports:
         - containerPort: 80
