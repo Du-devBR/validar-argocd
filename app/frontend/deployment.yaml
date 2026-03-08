@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: 192.168.15.41/frontend/frontend:v1
+        image: harbor.dev.pipebr/frontend/frontend:v1
         ports:
         - containerPort: 80
