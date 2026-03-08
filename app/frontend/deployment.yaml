@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: nginx:1.25
+        image: 192.168.15.41/homelab/frontend:v1
         ports:
         - containerPort: 80
