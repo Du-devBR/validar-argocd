@@ -12,35 +12,14 @@ spec:
     metadata:
       labels:
         app: frontend-nginx
-        app.kubernetes.io/instance: frontend-nginx
-        app.kubernetes.io/version: v1
     spec:
       containers:
       - name: nginx
-        image: nginx:latest
+        image: nginx:alpine
         ports:
         - containerPort: 80
-        volumeMounts:
-        - name: html
-          mountPath: /usr/share/nginx/html
-      volumes:
-      - name: html
-        configMap:
-          name: frontend-html
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: frontend-html
-  namespace: frontend
-data:
-  index.html: |
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Minha Página Nginx</title>
-    </head>
-    <body>
-        <h1>Olá! Esta é minha página estática no Nginx</h1>
-    </body>
-    </html>
+        command: ["/bin/sh"]
+        args:
+          - "-c"
+          - |
+            echo '<h1>Olá! Página simples no Nginx</h1>' > /usr/share/nginx/html/index.html && nginx -g 'daemon off;'
