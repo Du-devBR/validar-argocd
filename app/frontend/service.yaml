@@ -3,6 +3,9 @@ kind: Service
 metadata:
   name: frontend-react
   namespace: frontend
+  labels:
+    environment: dev
+    team: infra
 spec:
   selector:
     app: frontend-react
