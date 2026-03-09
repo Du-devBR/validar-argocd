@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: frontend-nginx
   namespace: frontend
+  labels:
+    environment: dev
+    team: infra
 spec:
   replicas: 2
   selector:
