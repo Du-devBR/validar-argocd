@@ -12,6 +12,8 @@ spec:
     metadata:
       labels:
         app: frontend-react
+        app.kubernetes.io/instance: frontend-react
+        app.kubernetes.io/version: v1
     spec:
       imagePullSecrets:
       - name: harbor-secret
