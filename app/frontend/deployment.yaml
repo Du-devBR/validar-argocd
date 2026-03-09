@@ -16,6 +16,7 @@ spec:
     metadata:
       labels:
         app: frontend-react
+        version: v1
     spec:
       containers:
       - name: nginx
