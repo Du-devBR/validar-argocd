@@ -18,8 +18,3 @@ spec:
         image: nginx:alpine
         ports:
         - containerPort: 80
-        command: ["/bin/sh"]
-        args:
-          - "-c"
-          - |
-            echo '<h1>Olá! Página simples no Nginx</h1>' > /usr/share/nginx/html/index.html && nginx -g 'daemon off;'
