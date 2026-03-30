@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: https://github.com/Du-devBR/aovivoesporte-frontend.git
+        image: https://github.com/Du-devBR/aovivoesportes-frontend.git
         ports:
         - containerPort: 80
         resources:
