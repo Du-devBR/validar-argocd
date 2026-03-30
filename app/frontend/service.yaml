@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend-react
+  name: frontend-aovivoesporte
   namespace: frontend
   labels:
     environment: dev
     team: infra
 spec:
   selector:
-    app: frontend-react
+    app: frontend-aovivoesporte
   ports:
     - port: 80
       targetPort: 80
