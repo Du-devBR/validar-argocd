@@ -22,7 +22,6 @@ spec:
       containers:
       imagePullSecrets:
       - name: dockerhub-secret
-      - name: nginx
         image: eduardoananias/aovivoesportes-frontend:latest
         ports:
         - containerPort: 80
