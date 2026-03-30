@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-nginx
+  name: frontend-aovivoesporte
   namespace: frontend
   labels:
     environment: dev
@@ -11,16 +11,17 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: frontend-react
+      app: frontend-aovivoesporte
+      version: v1
   template:
     metadata:
       labels:
-        app: frontend-react
+        app: frontend-aovivoesporte
         version: v1
     spec:
       containers:
       - name: nginx
-        image: nginx:alpine
+        image: https://github.com/Du-devBR/aovivoesporte-frontend.git
         ports:
         - containerPort: 80
         resources:
