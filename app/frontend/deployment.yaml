@@ -19,9 +19,10 @@ spec:
         app: frontend-aovivoesporte
         version: v1
     spec:
-      containers:
       imagePullSecrets:
       - name: dockerhub-secret
+      containers:
+      - name: frontend
         image: eduardoananias/aovivoesportes-frontend:latest
         ports:
         - containerPort: 80
