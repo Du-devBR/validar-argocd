@@ -20,6 +20,8 @@ spec:
         version: v1
     spec:
       containers:
+      imagePullSecrets:
+      - name: dockerhub-secret
       - name: nginx
         image: eduardoananias/aovivoesportes-frontend:latest
         ports:
