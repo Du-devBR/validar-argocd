@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.values.app.name}}
+  namespace: {{.values.app.namespace}}
+  labels:
+    environment: dev
+    team: infra
+    owner: eduardo
+spec:
+  replicas: {{.values.replicaCount}}
+  selector:
+    matchLabels:
+      app: {{.values.app.name}}
+      version: {{.values.app.version}}
+  template:
+    metadata:
+      labels:
+        app: {{.values.app.name}}
+        version: {{.values.app.version}}
+    spec:
+      imagePullSecrets:
+      - name: {{.values.image.pullPolicy}}
+      containers:
+      - name: {{.values.app.name}}
+        image: {{.values.image.repository}}:{{.values.image.tag}}
+        ports:
+        - containerPort: {{.values.service.port}}
+        resources:
+          requests:
+            cpu: {{.values.resources.requests.cpu}}
+            memory: {{.values.resources.requests.memory}}
+          limits:
+            cpu: {{.values.resources.limits.cpu}}
+            memory: {{.values.resources.limits.memory}}

@@ -1,0 +1,23 @@
+replicaCount: 2
+app:
+  name: frontend-aovivoesporte
+  version: v1
+  namespace: frontend
+image:
+  repository: eduardoananias/aovivoesportes-frontend
+  tag: latest
+  pullPolicy: dockerhub-secret
+service:
+  type: ClusterIP
+  port: 80
+ingress:
+  enabled: true
+  host: app.dev.pipebr
+  tlscert: wildcard-dev-pipebr-tls
+resources:
+  requests:
+    cpu: "50m"
+    memory: "64Mi"
+  limits:
+    cpu: "100m"
+    memory: "128Mi"
