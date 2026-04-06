@@ -5,7 +5,7 @@ app:
   namespace: frontend
 image:
   repository: eduardoananias/aovivoesportes-frontend
-  tag: latest
+  tag: 1defc4494af01ee12e891ca13220936bb69c4c7b
   pullPolicy: dockerhub-secret
 service:
   type: ClusterIP
