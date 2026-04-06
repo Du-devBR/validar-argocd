@@ -8,28 +8,28 @@ metadata:
     team: infra
     owner: eduardo
 spec:
-  replicas: {{.values.replicaCount}}
+  replicas: {{ .values.replicaCount}}
   selector:
     matchLabels:
-      app: {{.values.app.name}}
-      version: {{.values.app.version}}
+      app: {{ .values.app.name }}
+      version: {{ .values.app.version }}
   template:
     metadata:
       labels:
-        app: {{.values.app.name}}
-        version: {{.values.app.version}}
+        app: {{ .values.app.name }}
+        version: {{ .values.app.version }}
     spec:
       imagePullSecrets:
-      - name: {{.values.image.pullPolicy}}
+      - name: {{ .values.image.pullPolicy }}
       containers:
-      - name: {{.values.app.name}}
-        image: {{.values.image.repository}}:{{.values.image.tag}}
+      - name: {{ .values.app.name }}
+        image: "{{ .values.image.repository }}:{{ .values.image.tag }}"
         ports:
-        - containerPort: {{.values.service.port}}
+        - containerPort: {{ .values.service.port }}
         resources:
           requests:
-            cpu: {{.values.resources.requests.cpu}}
-            memory: {{.values.resources.requests.memory}}
+            cpu: {{ .values.resources.requests.cpu }}
+            memory: {{ .values.resources.requests.memory }}
           limits:
-            cpu: {{.values.resources.limits.cpu}}
-            memory: {{.values.resources.limits.memory}}
+            cpu: {{ .values.resources.limits.cpu }}
+            memory: {{ .values.resources.limits.memory }}
